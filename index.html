@@ -1,58 +1,124 @@
 <!DOCTYPE html>
 <html lang="en" style="scroll-behavior: smooth;">
     <style>
-        /* ONLY apply these changes on mobile devices */
-        @media (max-width: 768px) {
-            
-            /* 1. KEEP SIDE-BY-SIDE: Overriding the previous "column" command */
-            section, 
-            nav, 
-            div[style*="display: flex"] { 
-                flex-direction: row !important; 
-                flex-wrap: nowrap !important;
+        /* Mobile Responsive Styles */
+        @media screen and (max-width: 768px) {
+            /* Navigation */
+            nav {
+                flex-direction: column !important;
+                gap: 20px !important;
+                padding: 20px 5% !important;
             }
-    
-            /* 2. BIGGER FONTS: Making the text readable while zoomed out */
-            body {
-                font-size: 20px !important;
+
+            nav > div:first-child {
+                flex-direction: column !important;
+                gap: 15px !important;
             }
-    
+
+            /* Hero sections */
+            section[style*="display: flex"] {
+                flex-direction: column !important;
+                padding: 20px 5% !important;
+            }
+
+            /* Headings */
             h1 {
-                font-size: 70px !important; /* Main titles */
-                line-height: 1.1;
+                font-size: 36px !important;
             }
-    
+
             h2 {
-                font-size: 45px !important; /* Section titles */
+                font-size: 28px !important;
             }
-    
-            p, label, input, select, td {
-                font-size: 24px !important; /* Paragraphs and Form text */
+
+            /* Images */
+            img[src*="bakingpicture.jpg"],
+            img[src*="baking2pics.jpg"],
+            img[src*="round pastries.jpg"] {
+                max-width: 100% !important;
+                margin: 20px 0 !important;
             }
-    
-            /* 3. FIX IMAGES: Ensure they stay side-by-side without overlapping */
-            img {
-                max-width: 45% !important; /* Keeps them small enough to stay next to text */
-                height: auto !important;
-            }
-    
-            /* 4. PRODUCT GRID: Keep your 3 images in a row */
+
+            /* Product grid - stack vertically on mobile */
             div[style*="justify-content:center"] {
-                display: flex !important;
-                flex-direction: row !important;
-                flex-wrap: nowrap !important;
-                gap: 10px !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 30px !important;
             }
-            
+
+            div[style*="justify-content:center"] > div {
+                width: 100% !important;
+            }
+
             div[style*="justify-content:center"] img {
-                width: 30% !important; /* Makes 3 images fit in one line */
+                width: 100% !important;
+                max-width: 350px !important;
+            }
+
+            /* Forms */
+            form div[style*="display: flex"][style*="gap: 20px"] {
+                flex-direction: column !important;
+            }
+
+            /* Order and Contact sections */
+            #order-container,
+            #contact-container {
+                padding: 0 20px !important;
+            }
+
+            /* Customer testimonial section */
+            div[style*="width: 1200px"] {
+                width: 100% !important;
+                flex-direction: column !important;
+                padding: 20px !important;
+            }
+
+            div[style*="max-width: 700px"] {
+                max-width: 100% !important;
+            }
+
+            /* Text sections */
+            div[style*="padding: 100px"] {
+                padding: 40px 20px !important;
+            }
+
+            /* Newsletter section */
+            section[style*="gap: 40px"] > div {
+                width: 100% !important;
+            }
+
+            p[style*="max-width: 450px"] {
+                max-width: 100% !important;
+            }
+
+            /* Map */
+            iframe {
+                height: 250px !important;
+            }
+
+            /* Buttons and inputs */
+            input, select, textarea, button {
+                font-size: 16px !important;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 28px !important;
+            }
+
+            h2 {
+                font-size: 24px !important;
+            }
+
+            nav, section {
+                padding: 15px 5% !important;
             }
         }
     </style>
 
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=1200">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sweet Crump Bakery</title>
     </head>
 
@@ -103,13 +169,13 @@
                     </p>
 
                     <a href="#menu"
-                        style="display: inline-block; padding: 15px 35px; background-color: #c49a6c; color: white; text-decoration: none; font-size: 1.2rem; border-radius: 8px; font-weight: 600; box-shadow: 0 4px 10px rgba(212, 163, 79, 0.3);">
+                        style="display: inline-block; padding: 15px 35px; background-color: #D4A34F; color: white; text-decoration: none; font-size: 18px; border-radius: 8px; font-weight: 600; box-shadow: 0 4px 10px rgba(212, 163, 79, 0.3);">
                         View Menu
                     </a>
                 </div>
 
-                <img src="bakingpicture.jpg" alt="Fresh Pastries" style="width: 100%; 
-               max-width: 500px; 
+                <img src="bakingpicture.jpg" alt="Fresh Pastries" style="width: 100%;
+               max-width: 500px;
                border-radius: 20px;
                /* The Magic Code Below */
                -webkit-mask-image: linear-gradient(to right, transparent, black 15%);
@@ -132,52 +198,45 @@
                 </p>
             </div>
 
-            <img src="baking2pics.jpg" alt="Fresh Pastries" style="width: 100%; 
-                 max-width: 500px; 
+            <img src="baking2pics.jpg" alt="Fresh Pastries" style="width: 100%;
+                 max-width: 500px;
                  border-radius: 20px;
                  /* The Magic Code Below */
                  -webkit-mask-image: linear-gradient(to right, transparent, black 15%);
                  mask-image: linear-gradient(to right, transparent, black 15%);">
         </section>
 
-        <section id="menu" style="padding: 40px 10%;">
-
-            <div style="flex: 1;">
-                <h1
-                    style="font-family: 'Georgia', serif;  font-size: 64px; color: maroon; margin: 0 0 20px 0; font-weight: normal; text-align: center;">
-                    Our Products
-                </h1>
-            </div>
+        <section id="menu" style="padding: 40px 10%; text-align: center;">
+            <h1 style="font-family: 'Georgia', serif; font-size: 64px; color: #4A3728; margin: 0 0 20px 0; font-weight: normal;">
+                Our Products
+            </h1>
+            <p style="font-size: 1.8rem; color: #D4A34F; margin-bottom: 40px;">
+                <em>Delicious Treats</em>
+            </p>
         </section>
-
-        <p style="text-align: center; font-size: 1.8rem; color: burlywood; margin-bottom: 40px;">
-            <em>Delicious Treats</em>
-        </p>
 
 
         <!-- Images row -->
         <div style="display: flex; justify-content:center; gap: 30px; padding: 20px 10%;">
 
             <div style="text-align: center;">
-                <img src="baking3.jpg" alt="Image 1" style="width: 350px; border-radius: 16px;">
-                <p style="margin-top: 10px; font-size: 14px; color: brown;">
-                    <em>Our favorite <strong>Desert</strong> that always make it to the best seller</em>
+                <img src="baking3.jpg" alt="Dessert" style="width: 350px; border-radius: 16px;">
+                <p style="margin-top: 10px; font-size: 14px; color: #4A3728;">
+                    <em>Our favorite <strong>Dessert</strong> that always makes it to the best seller</em>
                 </p>
-
             </div>
 
             <div style="text-align: center;">
-                <img src="baking1.jpg" alt="Image 2" style="width: 350px; border-radius: 16px;">
-                <p style="margin-top: 10px; font-size: 14px; color: brown;">
-                    <em>Our favorite <strong>Cake</strong> that always make it to the best seller</em> <br><br><br>
+                <img src="baking1.jpg" alt="Cake" style="width: 350px; border-radius: 16px;">
+                <p style="margin-top: 10px; font-size: 14px; color: #4A3728;">
+                    <em>Our favorite <strong>Cake</strong> that always makes it to the best seller</em>
                 </p>
-
             </div>
 
             <div style="text-align: center;">
-                <img src="baking4.jpg" alt="Image 3" style="width: 350px; border-radius: 16px;">
-                <p style="margin-top: 10px; font-size: 14px; color: brown;">
-                    <em>Our favorite <strong>Bread</strong> that always make it to the best seller</em>
+                <img src="baking4.jpg" alt="Bread" style="width: 350px; border-radius: 16px;">
+                <p style="margin-top: 10px; font-size: 14px; color: #4A3728;">
+                    <em>Our favorite <strong>Bread</strong> that always makes it to the best seller</em>
                 </p>
             </div>
         </div>
@@ -187,23 +246,23 @@
 
 
             <div style="text-align: center;">
-                <img src="cookiedough.avif" alt="Image 3" style="width: 350px; border-radius: 16px;">
-                <p style="margin-top: 10px; font-size: 14px; color: brown;">
-                    <em>Our favorite <strong>Cookie dough</strong> that always make it to the best Consumers</em>
+                <img src="cookiedough.avif" alt="Cookie Dough" style="width: 350px; border-radius: 16px;">
+                <p style="margin-top: 10px; font-size: 14px; color: #4A3728;">
+                    <em>Our favorite <strong>Cookie Dough</strong> that always makes it to the best seller</em>
                 </p>
             </div>
 
             <div style="text-align: center;">
-                <img src="cake slice.avif" alt="Image 3" style="width: 350px; border-radius: 16px;">
-                <p style="margin-top: 10px; font-size: 14px; color: brown;">
-                    <em>Our favorite <strong>Croissants</strong> that always make it to the best Consumers</em>
+                <img src="cake slice.avif" alt="Croissants" style="width: 350px; border-radius: 16px;">
+                <p style="margin-top: 10px; font-size: 14px; color: #4A3728;">
+                    <em>Our favorite <strong>Croissants</strong> that always makes it to the best seller</em>
                 </p>
             </div>
 
             <div style="text-align: center;">
-                <img src="breadroll.avif" alt="Image 3" style="width: 320px; border-radius: 16px;">
-                <p style="margin-top: 10px; font-size: 14px; color: brown;">
-                    <em>Our favorite <strong>Bread Roll</strong> that always make it to the best consumer</em>
+                <img src="breadroll.avif" alt="Bread Roll" style="width: 350px; border-radius: 16px;">
+                <p style="margin-top: 10px; font-size: 14px; color: #4A3728;">
+                    <em>Our favorite <strong>Bread Roll</strong> that always makes it to the best seller</em>
                 </p>
             </div>
         </div>
@@ -220,9 +279,9 @@
 
                 <p id="order-subtext" style="color: #6D5B4B; margin-bottom: 40px;">Freshly baked just for you</p>
 
-                <form id="order-form" onsubmit="event.preventDefault(); 
-                                    document.getElementById('order-form').style.display='none'; 
-                                    document.getElementById('order-subtext').style.display='none'; 
+                <form id="order-form" onsubmit="event.preventDefault();
+                                    document.getElementById('order-form').style.display='none';
+                                    document.getElementById('order-subtext').style.display='none';
                                     document.getElementById('order-success').style.display='block';"
                     style="display: flex; flex-direction: column; gap: 20px; text-align: left;">
 
@@ -296,105 +355,63 @@
 
 
 
-        <div style="padding: 100px; margin-right: 60px;">
-            <h1>What our customers say</h1>
-            <p style="font-size: 16px; color: #6D5B4B; line-height: 1.8;">
-                    Whether you are clebrating a special occasion or simply treating yourself to a moment of sweetness,
-                    our bakery is your go to destination. We make the best pastries in the world. A taste will convince you, you cant stop at one.</p>
-            </div>
+        <div style="padding: 60px 10%; margin: 0;">
+            <h1 style="font-family: 'Georgia', serif; font-size: 48px; color: #4A3728; margin: 0 0 20px 0; font-weight: normal;">What our customers say</h1>
+            <p style="font-size: 16px; color: #6D5B4B; line-height: 1.8; max-width: 900px;">
+                Whether you are celebrating a special occasion or simply treating yourself to a moment of sweetness, our bakery is your go-to destination. We make the best pastries in the world. A taste will convince you, you can't stop at one.
+            </p>
         </div>
-            <!-- Images row -->
-            <div style="display: flex; align-items: center; justify-content: left; gap: 20px; flex-wrap: nowrap; width: 1200px;">
+        <div style="display: flex; align-items: center; gap: 30px; padding: 40px 10%; max-width: 1200px; margin: 0 auto;">
+            <img src="bakingp5.jpg" alt="Bakery Interior" style="width: 400px; height: auto; border-radius: 20px; -webkit-mask-image: linear-gradient(to right, transparent, black 20%); mask-image: linear-gradient(to right, transparent, black 20%);">
 
-                <img src="bakingp5.jpg" alt="Image 1" style="width: 400px;  height: auto; border-radius: 16px; border-radius: 20px;
-                /* The Magic Code Below */
-                -webkit-mask-image: linear-gradient(to right, transparent, black 20%);
-                mask-image: linear-gradient(to right, transparent, black 25%);" <div
-                    style="display: flex; justify-content: right; padding: 40px;">
-
-            <div style="background-color: white; 
-                    width: 100%; 
-                    max-width: 700px; 
-                    height: 300px;
-                    padding: 30px; 
-                    border-radius: 15px; 
-                    box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
-                    border: 1px solid #E8D5C4;
-                    text-align: center;">
-
-                <h2 style="font-family: 'Georgia', serif; color: #9C2007; margin-top: 0;">Eleanor pena
-                    <p>
-                    <p style="font-size: 20px; color: #D4A34F;">
-                        ★★★★☆ Excellent!
-                    </p>
-                    </p>
-                </h2>
-
+            <div style="background-color: white; flex: 1; max-width: 700px; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid #E8D5C4; text-align: center;">
+                <h2 style="font-family: 'Georgia', serif; color: #9C2007; margin-top: 0; margin-bottom: 10px;">Eleanor Pena</h2>
+                <p style="font-size: 20px; color: #D4A34F; margin: 10px 0;">★★★★☆ Excellent!</p>
                 <p style="color: #6D5B4B; font-family: sans-serif; line-height: 1.6; margin-bottom: 0;">
-                    As a self proclaimed sweeet tooth, stumbling upon indulge in sweet Bakery was like finding a
-                    gemin a desert wonderland. Their delectable treats are the highlight of my day, and i find
-                    myself making excuses to swing by their shop or browse their website daily. From the moment you
-                    step through their doors, the aroma of freshly baked goods envelops you,transporting you to a
-                    world of delights
+                    As a self-proclaimed sweet tooth, stumbling upon Sweet Crump Bakery was like finding a gem in a dessert wonderland. Their delectable treats are the highlight of my day, and I find myself making excuses to swing by their shop or browse their website daily. From the moment you step through their doors, the aroma of freshly baked goods envelops you, transporting you to a world of delights.
                 </p>
-
             </div>
-
         </div>
-        </div>
-
-
-
-
         <section id="contact" style="padding: 80px 10%; background-color: #FDF7F2; text-align: center;">
 
             <h2 style="font-family: 'Georgia', serif; font-size: 42px; color: #4A3728; margin-bottom: 10px;">
                 Contact Us
             </h2>
-
             <div id="contact-container" style="max-width: 600px; margin: 0 auto;">
-
                 <p id="contact-subtext" style="font-size: 18px; color: #6D5B4B; margin-bottom: 40px;">
                     Get in touch with us
                 </p>
-
-                <form id="bakery-form" onsubmit="event.preventDefault(); 
-                                    document.getElementById('bakery-form').style.display='none'; 
-                                    document.getElementById('contact-subtext').style.display='none'; 
+                <form id="bakery-form" onsubmit="event.preventDefault();
+                                    document.getElementById('bakery-form').style.display='none';
+                                    document.getElementById('contact-subtext').style.display='none';
                                     document.getElementById('success-message').style.display='block';"
                     style="display: flex; flex-direction: column; gap: 20px; text-align: left;">
-
                     <div style="display: flex; flex-direction: column; gap: 8px;">
                         <label style="color: #4A3728; font-weight: 600;">Full Name</label>
                         <input type="text" required placeholder="Your name"
                             style="padding: 12px; border: 1px solid #E8D5C4; border-radius: 8px; font-family: sans-serif; outline: none;">
                     </div>
-
                     <div style="display: flex; flex-direction: column; gap: 8px;">
                         <label style="color: #4A3728; font-weight: 600;">Email Address</label>
                         <input type="email" required placeholder="example@mail.com"
                             style="padding: 12px; border: 1px solid #E8D5C4; border-radius: 8px; font-family: sans-serif; outline: none;">
                     </div>
-
                     <div style="display: flex; flex-direction: column; gap: 8px;">
                         <label style="color: #4A3728; font-weight: 600;">Subject</label>
                         <input type="text" required placeholder="How can we help?"
                             style="padding: 12px; border: 1px solid #E8D5C4; border-radius: 8px; font-family: sans-serif; outline: none;">
                     </div>
-
                     <div style="display: flex; flex-direction: column; gap: 8px;">
                         <label style="color: #4A3728; font-weight: 600;">Message</label>
                         <textarea required rows="5" placeholder="Write your message here..."
                             style="padding: 12px; border: 1px solid #E8D5C4; border-radius: 8px; font-family: sans-serif; resize: vertical; outline: none;"></textarea>
                     </div>
-
                     <button type="submit" onmouseenter="this.style.backgroundColor='#4A3728'"
                         onmouseleave="this.style.backgroundColor='#D4A34F'"
                         style="padding: 15px; background-color: #D4A34F; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: 0.3s; margin-top: 10px;">
                         Send Message
                     </button>
                 </form>
-
                 <div id="success-message"
                     style="display: none; padding: 50px 20px; background-color: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #E8D5C4;">
                     <h3 style="font-family: 'Georgia', serif; color: #4A3728; font-size: 28px; margin-top: 0;">Thank you
@@ -402,13 +419,8 @@
                     <p style="color: #6D5B4B; font-size: 18px; line-height: 1.6; margin-bottom: 0;">We have received
                         your request and will contact you shortly. 🥐</p>
                 </div>
-
             </div>
         </section>
-
-
-
-
         <section style="display: flex; align-items: center; padding: 40px 10%; gap: 40px;">
 
             <div style="flex: 1;">
@@ -426,11 +438,12 @@
                     </p>
 
                     <input type="email" placeholder="Enter your email address"
-                        style="flex: 2; padding: 15px 20px; border: 1px solid #E8D5C4; border-radius: 8px; font-family: sans-serif; outline: none; background-color: white;">
+                        style="width: 100%; max-width: 450px; padding: 15px 20px; border: 1px solid #E8D5C4; border-radius: 8px; font-family: sans-serif; outline: none; background-color: white;">
                     <br><br>
 
-                    <button
-                        style="flex: 1; background-color: #D4A34F; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; padding: 15px; transition: 0.3s;">
+                    <button onmouseenter="this.style.backgroundColor='#4A3728'"
+                        onmouseleave="this.style.backgroundColor='#D4A34F'"
+                        style="background-color: #D4A34F; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; padding: 15px 35px; transition: 0.3s; font-size: 16px;">
                         Subscribe
                     </button>
                 </div>
@@ -440,17 +453,12 @@
                     style="width: 100%; max-width: 600px; border-radius: 20px;">
             </div>
         </section>
-
-
-
         <div id="location-hours" style="text-align: center; padding: 40px 10%; background-color: #FDF7F2;">
-
             <h2 style="font-family: 'Georgia', serif; color: #4A3728; font-size: 32px; margin-bottom: 20px;">Location &
                 Hours</h2>
             <p style="color: #6D5B4B; margin: 5px 0;"><strong>Address:</strong> 123 Bakery Street, Sweet Town</p>
             <p style="color: #6D5B4B; margin: 5px 0;"><strong>Opening Hours:</strong> Mon–Sat, 7:00 AM – 7:00 PM</p>
             <p style="color: #6D5B4B; margin: 5px 0;"><strong>Phone Number:</strong> (123) 456-7890</p>
-
             <div style="margin-top: 30px;">
                 <iframe width="100%" height="350"
                     src="https://www.openstreetmap.org/export/embed.html?bbox=3.006134033203125%2C6.150112578753815%2C3.6357879638671875%2C6.749850810550778&amp;layer=mapnik"
@@ -466,13 +474,8 @@
                 </div>
             </div>
         </div>
-
-
-
         <footer style="text-align: center; padding: 20px; background-color: moccasin; color: black;">
             <p>© 2025 Sweet Crump Bakery. All rights reserved.</p>
         </footer>
     </body>
-
-
 </html>
