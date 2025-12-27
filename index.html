@@ -1,43 +1,55 @@
 <!DOCTYPE html>
 <html lang="en" style="scroll-behavior: smooth;">
     <style>
-        /* This makes the side-by-side sections stack vertically on phones */
-        @media (max-width: 768px) {
+        /* This style ONLY triggers on mobile/tablet screens */
+        @media (max-width: 1024px) {
+            
+            /* FORCES text to be larger so it's readable while zoomed out */
+            body {
+                font-size: 24px !important;
+            }
+
+            h1 {
+                font-size: 80px !important; /* Huge titles for the 'laptop' look */
+                line-height: 1.2 !important;
+            }
+
+            h2 {
+                font-size: 55px !important;
+            }
+
+            p, label, input, select, textarea {
+                font-size: 26px !important; /* Larger text for descriptions and forms */
+            }
+
+            /* FORCES everything to stay side-by-side (no stacking) */
             section, 
-            .flex-container, 
             nav, 
             div[style*="display: flex"] { 
-                flex-direction: column !important; 
-                text-align: center !important;
+                flex-direction: row !important; 
+                flex-wrap: nowrap !important;
+                display: flex !important;
             }
-    
-            /* Adjusts images so they don't overflow the screen */
+
+            /* Ensures images don't get too big and push text away */
             img {
-                max-width: 100% !important;
+                max-width: 50% !important;
                 height: auto !important;
-                mask-image: none !important; /* Removes the side-fade on mobile for better visibility */
-                -webkit-mask-image: none !important;
             }
-    
-            /* Fixes the navigation spacing on mobile */
-            nav {
+
+            /* Keeps the 3 product images in a single line */
+            div[style*="justify-content:center"] {
+                flex-wrap: nowrap !important;
                 gap: 15px !important;
-                padding: 20px 5% !important;
             }
-    
-            /* Makes sure the order form/contact form takes up full width */
-            div[style*="max-width: 600px"], 
-            div[style*="max-width: 700px"] {
-                max-width: 90% !important;
-            }
-            
-            /* Ensures the two columns in the form stack on top of each other */
-            div[style*="display: flex; gap: 20px"] {
-                flex-direction: column !important;
-                gap: 10px !important;
+
+            div[style*="justify-content:center"] img {
+                width: 320px !important; /* Maintains the laptop size for products */
             }
         }
     </style>
+</head>
+
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=1200">
