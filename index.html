@@ -1,9 +1,46 @@
 <!DOCTYPE html>
 <html lang="en" style="scroll-behavior: smooth;">
-
+    <style>
+        /* This makes the side-by-side sections stack vertically on phones */
+        @media (max-width: 768px) {
+            section, 
+            .flex-container, 
+            nav, 
+            div[style*="display: flex"] { 
+                flex-direction: column !important; 
+                text-align: center !important;
+            }
+    
+            /* Adjusts images so they don't overflow the screen */
+            img {
+                max-width: 100% !important;
+                height: auto !important;
+                mask-image: none !important; /* Removes the side-fade on mobile for better visibility */
+                -webkit-mask-image: none !important;
+            }
+    
+            /* Fixes the navigation spacing on mobile */
+            nav {
+                gap: 15px !important;
+                padding: 20px 5% !important;
+            }
+    
+            /* Makes sure the order form/contact form takes up full width */
+            div[style*="max-width: 600px"], 
+            div[style*="max-width: 700px"] {
+                max-width: 90% !important;
+            }
+            
+            /* Ensures the two columns in the form stack on top of each other */
+            div[style*="display: flex; gap: 20px"] {
+                flex-direction: column !important;
+                gap: 10px !important;
+            }
+        }
+    </style>
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=1200">
         <title>Sweet Crump Bakery</title>
     </head>
 
@@ -249,13 +286,13 @@
 
         <div style="padding: 100px; margin-right: 60px;">
             <h1>What our customers say</h1>
-            <p style="font-size: 16px; color: #6D5B4B; line-height: 1.8;"">
+            <p style="font-size: 16px; color: #6D5B4B; line-height: 1.8;">
                     Whether you are clebrating a special occasion or simply treating yourself to a moment of sweetness,
                     our bakery is your go to destination. We make the best pastries in the world. A taste will convince you, you cant stop at one.</p>
             </div>
         </div>
             <!-- Images row -->
-            <div style=" display: flex; align-items: center; justify-content:left; gap: 0px; padding: 10px 10%;">
+            <div style="display: flex; align-items: center; justify-content: left; gap: 20px; flex-wrap: nowrap; width: 1200px;">
 
                 <img src="bakingp5.jpg" alt="Image 1" style="width: 400px;  height: auto; border-radius: 16px; border-radius: 20px;
                 /* The Magic Code Below */
