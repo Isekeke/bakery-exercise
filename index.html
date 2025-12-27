@@ -1,54 +1,54 @@
 <!DOCTYPE html>
 <html lang="en" style="scroll-behavior: smooth;">
     <style>
-        /* This style ONLY triggers on mobile/tablet screens */
-        @media (max-width: 1024px) {
+        /* ONLY apply these changes on mobile devices */
+        @media (max-width: 768px) {
             
-            /* FORCES text to be larger so it's readable while zoomed out */
-            body {
-                font-size: 24px !important;
-            }
-
-            h1 {
-                font-size: 80px !important; /* Huge titles for the 'laptop' look */
-                line-height: 1.2 !important;
-            }
-
-            h2 {
-                font-size: 55px !important;
-            }
-
-            p, label, input, select, textarea {
-                font-size: 26px !important; /* Larger text for descriptions and forms */
-            }
-
-            /* FORCES everything to stay side-by-side (no stacking) */
+            /* 1. KEEP SIDE-BY-SIDE: Overriding the previous "column" command */
             section, 
             nav, 
             div[style*="display: flex"] { 
                 flex-direction: row !important; 
                 flex-wrap: nowrap !important;
-                display: flex !important;
             }
-
-            /* Ensures images don't get too big and push text away */
+    
+            /* 2. BIGGER FONTS: Making the text readable while zoomed out */
+            body {
+                font-size: 20px !important;
+            }
+    
+            h1 {
+                font-size: 70px !important; /* Main titles */
+                line-height: 1.1;
+            }
+    
+            h2 {
+                font-size: 45px !important; /* Section titles */
+            }
+    
+            p, label, input, select, td {
+                font-size: 24px !important; /* Paragraphs and Form text */
+            }
+    
+            /* 3. FIX IMAGES: Ensure they stay side-by-side without overlapping */
             img {
-                max-width: 50% !important;
+                max-width: 45% !important; /* Keeps them small enough to stay next to text */
                 height: auto !important;
             }
-
-            /* Keeps the 3 product images in a single line */
+    
+            /* 4. PRODUCT GRID: Keep your 3 images in a row */
             div[style*="justify-content:center"] {
+                display: flex !important;
+                flex-direction: row !important;
                 flex-wrap: nowrap !important;
-                gap: 15px !important;
+                gap: 10px !important;
             }
-
+            
             div[style*="justify-content:center"] img {
-                width: 320px !important; /* Maintains the laptop size for products */
+                width: 30% !important; /* Makes 3 images fit in one line */
             }
         }
     </style>
-</head>
 
     <head>
         <meta charset="utf-8" />
